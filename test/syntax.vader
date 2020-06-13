@@ -402,7 +402,7 @@ Given markdown;
 
 Execute (link with title):
   AssertEqual SyntaxOf('a'), 'mkdLink'
-  AssertEqual SyntaxOf('b'), 'mkdURL'
+  AssertEqual SyntaxOf('b'), 'mkdUrl'
 
 Given markdown;
 [a
@@ -411,7 +411,7 @@ b](c)
 Execute (link text with newline):
   AssertEqual SyntaxOf('a'), 'mkdLink'
   AssertEqual SyntaxOf('b'), 'mkdLink'
-  AssertEqual SyntaxOf('c'), 'mkdURL'
+  AssertEqual SyntaxOf('c'), 'mkdUrl'
 
 Given markdown;
 [a] b [c](d)
@@ -420,7 +420,7 @@ Execute (link text with bracket sections):
   AssertNotEqual SyntaxOf('a'), 'mkdLink'
   AssertNotEqual SyntaxOf('b'), 'mkdLink'
   AssertEqual SyntaxOf('c'), 'mkdLink'
-  AssertEqual SyntaxOf('d'), 'mkdURL'
+  AssertEqual SyntaxOf('d'), 'mkdUrl'
 
 Given markdown;
 [^a]: b
@@ -434,22 +434,22 @@ Given markdown;
 (b)
 
 Execute (parenthesis not in link):
-  AssertNotEqual SyntaxOf('a'), 'mkdURL'
-  AssertNotEqual SyntaxOf('b'), 'mkdURL'
+  AssertNotEqual SyntaxOf('a'), 'mkdUrl'
+  AssertNotEqual SyntaxOf('b'), 'mkdUrl'
 
 Given markdown;
 [a](b) c [d](e)
 
 Execute (multiple links on a line):
   AssertNotEqual SyntaxOf('c'), 'mkdLink'
-  AssertNotEqual SyntaxOf('c'), 'mkdURL'
+  AssertNotEqual SyntaxOf('c'), 'mkdUrl'
 
 Given markdown;
 [a] (b)
 
 Execute (space is not allowed between link text and parenthesis):
   AssertNotEqual SyntaxOf('a'), 'mkdLink'
-  AssertNotEqual SyntaxOf('b'), 'mkdURL'
+  AssertNotEqual SyntaxOf('b'), 'mkdUrl'
 
 Given markdown;
 [a](b)
@@ -560,8 +560,8 @@ Given markdown;
 Execute (autolink in link text):
   AssertEqual SyntaxOf('!'), 'mkdDelimiter'
   AssertEqual SyntaxOf('a'), 'mkdLink'
-  AssertEqual SyntaxOf('b'), 'mkdURL'
-  AssertEqual SyntaxOf('c'), 'mkdURL'
+  AssertEqual SyntaxOf('b'), 'mkdUrl'
+  AssertEqual SyntaxOf('c'), 'mkdUrl'
 
 Given markdown;
 # [h1link](url)
@@ -1259,7 +1259,7 @@ Execute (& and > are not marked as htmlError in lists):
   AssertNotEqual SyntaxOf('>'), 'htmlError'
 
 Given markdown;
-1. a  
+1. a
 2. b
 
 Execute (list after line break):

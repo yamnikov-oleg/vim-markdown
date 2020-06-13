@@ -540,11 +540,11 @@ function! s:Markdown_GetUrlForPosition(lnum, col)
     let l:col = a:col
     let l:syn = synIDattr(synID(l:lnum, l:col, 1), 'name')
 
-    if l:syn ==# 'mkdInlineURL' || l:syn ==# 'mkdURL' || l:syn ==# 'mkdLinkDefTarget'
+    if l:syn ==# 'mkdInlineURL' || l:syn ==# 'mkdUrl' || l:syn ==# 'mkdLinkDefTarget'
         " Do nothing.
     elseif l:syn ==# 'mkdLink'
-        let [l:lnum, l:col] = <sid>FindNextSyntax(l:lnum, l:col, 'mkdURL')
-        let l:syn = 'mkdURL'
+        let [l:lnum, l:col] = <sid>FindNextSyntax(l:lnum, l:col, 'mkdUrl')
+        let l:syn = 'mkdUrl'
     elseif l:syn ==# 'mkdDelimiter'
         let l:line = getline(l:lnum)
         let l:char = l:line[col - 1]
@@ -553,7 +553,7 @@ function! s:Markdown_GetUrlForPosition(lnum, col)
         elseif l:char ==# '>' || l:char ==# ')'
             let l:col -= 1
         elseif l:char ==# '[' || l:char ==# ']' || l:char ==# '('
-            let [l:lnum, l:col] = <sid>FindNextSyntax(l:lnum, l:col, 'mkdURL')
+            let [l:lnum, l:col] = <sid>FindNextSyntax(l:lnum, l:col, 'mkdUrl')
         else
             return ''
         endif

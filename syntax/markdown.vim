@@ -64,8 +64,8 @@ execute 'syn region htmlBoldItalic matchgroup=mkdBoldItalic start="\%(^\|\s\)\zs
 " [link](URL) | [link][id] | [link][] | ![image](URL)
 syn region mkdFootnotes matchgroup=mkdDelimiter start="\[^"    end="\]"
 execute 'syn region mkdID matchgroup=mkdDelimiter    start="\["    end="\]" contained oneline' . s:conceal
-execute 'syn region mkdURL matchgroup=mkdDelimiter   start="("     end=")"  contained oneline' . s:conceal
-execute 'syn region mkdLink matchgroup=mkdDelimiter  start="\\\@<!!\?\[\ze[^]\n]*\n\?[^]\n]*\][[(]" end="\]" contains=@mkdNonListItem,@Spell nextgroup=mkdURL,mkdID skipwhite' . s:concealends
+execute 'syn region mkdUrl matchgroup=mkdDelimiter   start="("     end=")"  contained oneline' . s:conceal
+execute 'syn region mkdLink matchgroup=mkdDelimiter  start="\\\@<!!\?\[\ze[^]\n]*\n\?[^]\n]*\][[(]" end="\]" contains=@mkdNonListItem,@Spell nextgroup=mkdUrl,mkdID skipwhite' . s:concealends
 
 " Autolink without angle brackets.
 " mkd  inline links:      protocol     optional  user:pass@  sub/domain                    .com, .co.uk, etc         optional port   path/querystring/hash fragment
@@ -170,11 +170,11 @@ HtmlHiLink mkdRule          Identifier
 HtmlHiLink mkdLineBreak     Visual
 HtmlHiLink mkdFootnotes     htmlLink
 HtmlHiLink mkdLink          htmlLink
-HtmlHiLink mkdURL           htmlString
+HtmlHiLink mkdUrl           htmlString
 HtmlHiLink mkdInlineURL     htmlLink
 HtmlHiLink mkdID            Identifier
 HtmlHiLink mkdLinkDef       mkdID
-HtmlHiLink mkdLinkDefTarget mkdURL
+HtmlHiLink mkdLinkDefTarget mkdUrl
 HtmlHiLink mkdLinkTitle     htmlString
 HtmlHiLink mkdDelimiter     Delimiter
 
